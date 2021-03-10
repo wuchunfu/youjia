@@ -47,7 +47,8 @@ html_head = """
 </head>
 
 <body>
-<h2>油价</h1>
+<h2>油价</h2>
+<p>数据来源为 [油价网](http://youjia.chemcp.com/) </p>
 """
 html_tail = "\n</body>\n</html>"
 
