@@ -15,7 +15,9 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
-      - run: python3 youjia.py > index.html
+      - run: |
+          cd $GITHUB_WORKSPACE
+          python3 youjia.py > index.html
       - name: Commit files
         run: |
           git config --local user.email "15563836030@163.com"
