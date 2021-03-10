@@ -41,25 +41,29 @@ for tr_index in range(2, 33):
 
 index.close()
 
-result = codecs.open("index.md", mode="r", encoding="utf-8")
-text = result.read()
+html_head = """
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<link href="https://cdn.jsdelivr.net/gh/RookieFanzk/link/github.css" rel="stylesheet">
+</head>
 
+<body>
+<h2>油价</h1>
+"""
+html_tail = "\n</body>\n</html>"
+
+exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.tables','markdown.extensions.toc', MathExtension(enable_dollar_delimiter=True)]
+
+result = open("index.md", mode="r", encoding="utf-8")
 readme = open('README.md', mode='w', encoding='utf-8')
 readme.truncate()
-read = open("index.md", encoding="utf-8")
-contents = read.readlines()
-readme_text = ""
-for content in contents:
-    readme_text += content.replace('\n', '\n')
-print("## 油价", file=readme)
-print(readme_text, file=readme)
-print(readme_text)
-read.close()
+text = result.read()
+result.close()
+body = markdown.Markdown(extensions = exts)
+html = html_head + body.convert(text) + html_tail
+print(html, file=readme)
 readme.close()
-
-html = markdown.markdown(text)
-
-index = open('index.md', mode='w', encoding='utf-8')
-index.truncate()
-print(html, file=index)
-index.close()
+print(html)
