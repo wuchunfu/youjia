@@ -53,6 +53,7 @@ for content in contents:
     readme_text += content.replace('\n', '\n')
 print("## 油价", file=readme)
 print(readme_text, file=readme)
+print(readme_text)
 read.close()
 readme.close()
 
