@@ -20,6 +20,8 @@ jobs:
           cd $GITHUB_WORKSPACE
           pip3 install requests lxml markdown
           python3 youjia.py > index.html
+          rm -rf index.md
+          cp README.md index.md
           git add .
       - name: Commit files
         run: |
