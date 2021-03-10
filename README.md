@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-<meta content="text/html; charset=utf-8" http-equiv="content-type" />
 <link href="https://cdn.jsdelivr.net/gh/RookieFanzk/link/github.css" rel="stylesheet">
 </head>
 
