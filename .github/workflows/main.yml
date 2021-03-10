@@ -17,6 +17,7 @@ jobs:
           architecture: 'x64'
       - run: |
           cd $GITHUB_WORKSPACE
+          pip3 install requests lxml
           python3 youjia.py > index.html
       - name: Commit files
         run: |
