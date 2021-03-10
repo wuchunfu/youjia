@@ -1,0 +1,28 @@
+name: YJ
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - run: python3 youjia.py > index.html
+      - name: Commit files
+        run: |
+          git config --local user.email "15563836030@163.com"
+          git config --local user.name "athlonreg"
+          git commit -m "Update in $(date +%Y-%m-%d)" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
