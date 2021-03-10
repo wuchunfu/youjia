@@ -1,8 +1,6 @@
-import codecs
-
-import markdown as markdown
+import markdown
 import requests
-
+from mdx_math import MathExtension
 from lxml import etree
 
 
