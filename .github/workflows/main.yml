@@ -19,11 +19,12 @@ jobs:
           cd $GITHUB_WORKSPACE
           pip3 install requests lxml
           python3 youjia.py > index.html
+          git add index.html
       - name: Commit files
         run: |
           git config --local user.email "15563836030@163.com"
           git config --local user.name "athlonreg"
-          git commit -m "Update in $(date +%Y-%m-%d)" -a
+          git commit -m "Update in $(date +%Y-%m-%d)"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
