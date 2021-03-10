@@ -18,7 +18,7 @@ jobs:
           architecture: 'x64'
       - run: |
           cd $GITHUB_WORKSPACE
-          pip3 install requests lxml markdown
+          pip3 install requests lxml markdown python-markdown-math
           python3 youjia.py
           git add .
       - name: Commit files
