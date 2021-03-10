@@ -19,7 +19,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           pip3 install requests lxml
           python3 youjia.py > index.html
-          git add index.html
+          git add .
       - name: Commit files
         run: |
           git config --local user.email "15563836030@163.com"
